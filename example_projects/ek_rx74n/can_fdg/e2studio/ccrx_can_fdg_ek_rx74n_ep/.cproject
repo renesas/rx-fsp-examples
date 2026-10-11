@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.renesas.cdt.managedbuild.renesas.ccrx.debug.configuration.938254306">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.renesas.cdt.managedbuild.renesas.ccrx.debug.configuration.938254306" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.renesas.core.RenesasCompilerAssemblerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.core.buildRunnerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.toolchainInfo">
+				<option id="toolchain.id" value="Renesas_RXC"/>
+				<option id="toolchain.version" value="v3.08.00"/>
+				<option id="toolchain.enable" value="true"/>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="abs" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" description="Debug" id="com.renesas.cdt.managedbuild.renesas.ccrx.debug.configuration.938254306" name="Debug" parent="com.renesas.cdt.managedbuild.renesas.ccrx.debug.configuration">
+					<folderInfo id="com.renesas.cdt.managedbuild.renesas.ccrx.debug.configuration.938254306." name="/" resourcePath="">
+						<toolChain id="com.renesas.cdt.managedbuild.renesas.ccrx.debug.toolChain.1941145514" name="Renesas CCRX Toolchain" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.debug.toolChain">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.PE" id="com.renesas.cdt.managedbuild.renesas.ccrx.base.targetPlatform.629450078" osList="win32" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/ccrx_can_fdg_ek_rx74n_ep}/Debug" id="com.renesas.cdt.managedbuild.renesas.ccrx.base.builder.2092265951" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CCRX Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.builder"/>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.dsp.914958513" name="DSP Assembler" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.dsp"/>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.common.2012293205" name="Common" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.common">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.isa.120061688" name="Instruction set architecture (-isa)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.isa" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.isa.rxv3" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.signedChar.1220141937" name="Sign of the char type (-signed_char/-unsigned_char)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.signedChar" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.signedChar.signed" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.branch.1478803267" name="Branch width size (-branch)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.branch" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.branch.none" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.floatIns.2127383093" name="Use floating point arithmetic instructions (-fpu/-nofpu)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.floatIns" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.floatIns.yes" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.doublePrecisionFPU.531190378" name="Generates code using double-precision floating-point processing instructions (-dpfpu/-nodpfpu)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.doublePrecisionFPU" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.hasTFU.1348961075" name="Has TFU" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.hasTFU" value="true" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.tfuType.693346836" name="TFU Type" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.tfuType" value="v2 -tfu_version=v2" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.enumDoubleSize.2123836265" name="Precision of double and long double types (-dbl_size)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.enumDoubleSize" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.enumDoubleSize.single" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.compiler.1905709232" name="Compiler" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.compiler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.define.894555560" name="Macro definition (-define)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.define" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RENESAS_RX_"/>
+									<listOptionValue builtIn="false" value="BSP_CFG_IO_LIB_ENABLE=1"/>
+									<listOptionValue builtIn="false" value="USE_VIRTUAL_COM=1"/>
+									<listOptionValue builtIn="false" value="_RX_ORDINAL=1"/>
+									<listOptionValue builtIn="false" value="_RX_CORE=RXv3e"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimize.1824177155" name="Optimization level (-optimize)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimize" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimize.level2" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.include.273920848" name="Include file directories (-include)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.include" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/instances}&quot;"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionB.305242530" name="Section name of uninitialized data area (-section=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionB" useByScannerDiscovery="false" value=".bss" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionC.837289637" name="Section name of constant area (-section=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionC" useByScannerDiscovery="false" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.langFileC.111054584" name="C source file (-lang)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.langFileC" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.langFileC.c99" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionP.31922004" name="Section name of program area (-section=P)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionP" useByScannerDiscovery="false" value=".text" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionD.1507924739" name="Section name of initialized data area (-section=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionD" useByScannerDiscovery="false" value=".data" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimizationType.2040082845" name="Optimization type (-speed/-size)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimizationType" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimizationType.speed" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionW.58486719" name="Section name of switch statement branch table area (-section=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionW" useByScannerDiscovery="false" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionL.123065618" name="Section name of literal area (-section=L)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionL" useByScannerDiscovery="false" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.inputCharCode.1889332722" name="Character code of an input program (-euc/-sjis/-latin1/-utf8/-big5/-gb2312)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.inputCharCode" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.inputCharCode.utf8" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.typeSizeAccessToVolatile.2010963378" name="Access to volatile qualified variables with the sizes of the variable types (-type_size_access_to_volatile)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.typeSizeAccessToVolatile" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffW.962438075" name="Allocates switch statement branch tables to 4-byte boundary alignment sections (-nostuff=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffW" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffD.967390323" name="Allocates initialized variables to 4-byte boundary alignment sections (-nostuff=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffD" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffB.1161848899" name="Allocates uninitialized variables to 4-byte boundary alignment sections (-nostuff=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffB" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffC.1860850011" name="Allocates const qualified variables to 4-byte boundary alignment sections (-nostuff=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffC" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.tfu.2125252807" name="Execution method of library function that can use trigonometric function unit (-tfu)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.tfu" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.tfu.yes.math" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.userAfter.1912925099" name="User-defined options (added after all specified options)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.userAfter" useByScannerDiscovery="false" valueType="stringList">
+									<listOptionValue builtIn="false" value="-protect_zone"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gcc.inputType.1554272700" name="Compiler Input C" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gcc.inputType"/>
+								<inputType id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gpp.inputType.1999153639" name="Compiler Input CPP" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gpp.inputType"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.assembler.345466992" name="Assembler" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.assembler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.include.1811196602" name="Include file directories (-include)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.include" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/${ProjName}/rx/fsp/src/bsp/mcu/all/}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/instances}&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.define.606682635" name="Macro definition (-define)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.define" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RX_ORDINAL=1"/>
+									<listOptionValue builtIn="false" value="_RX_CORE=RXv3e"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.userAfter.2044997168" name="User-defined options (added after all specified options)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.userAfter" valueType="stringList">
+									<listOptionValue builtIn="false" value="-protect_zone"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.inputType.937915205" name="Assembler InputType" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.inputType"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.linker.851115001" name="Linker" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.linker">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.specifyAddress.1061238198" name="Specify execution start address (-entry)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.specifyAddress" value="false" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.entry.360887727" name="Execution start address (-entry=&lt;symbol&gt;)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.entry" value="_Reset_Handler" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.symbolDelete.311615046" name="Deletes variables/functions that are not referenced (-optimize=symbol_delete)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.symbolDelete" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.linkerScript.969590375" name="Linker script file (-linker_script)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.linkerScript" valueType="stringList">
+									<listOptionValue builtIn="false" value="../script/fsp.rxld"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.434754701" name="Optimization type (-nooptimize/-optimize)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize" value="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.custom" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.noMessage.457649958" name="Message number (-nomessage=&lt;number&gt;)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.noMessage" value="100,1322" valueType="string"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.librarian.958717733" name="Library Generator" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.librarian">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.lang.1279017870" name="Library configuration (-lang)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.lang" value="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.lang.c99" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionP.431106413" name="Section name of program area (-section=P)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionP" value=".text" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionL.355919939" name="Section name of literal area (-section=L)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionL" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionW.404420267" name="Section name of switch statement branch table area (-section=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionW" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.speed.1854729533" name="Optimization type (-speed/-size)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.speed" value="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.speed.performance" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.typeSizeAccessToVolatile.1172440419" name="Access to volatile qualified variables with the sizes of the variable types (-type_size_access_to_volatile)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.typeSizeAccessToVolatile" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionC.2054811604" name="Section name of constant area (-section=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionC" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionB.219202791" name="Section name of uninitialized data area (-section=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionB" value=".bss" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionD.393794717" name="Section name of initialized data area (-section=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionD" value=".data" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffW.1750582773" name="Allocates switch statement branch tables to 4-byte boundary alignment sections (-nostuff=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffW" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffB.2067574346" name="Allocates uninitialized variables to 4-byte boundary alignment sections (-nostuff=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffB" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffD.487026534" name="Allocates initialized variables to 4-byte boundary alignment sections (-nostuff=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffD" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffC.754595188" name="Allocates const qualified variables to 4-byte boundary alignment sections (-nostuff=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffC" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.userAfter.41367917" name="User-defined options (added after all specified options)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.userAfter" valueType="stringList">
+									<listOptionValue builtIn="false" value="-protect_zone"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMath.278671279" name="math.h (C89/C99): Numerical calculation library (-head=math)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMath" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMathf.1005327579" name="mathf.h (C89/C99): Numerical calculation library (float type function) (-head=mathf)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMathf" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.converter.1057684889" name="Converter" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.converter">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.typeOfOutputFile.1541746156" name="Output file type (-form)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.typeOfOutputFile" value="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.typeOFOutputFile.none" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.separated.form.hexFile.1927419061" name="Intel HEX format file (-form=hexadecimal)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.separated.form.hexFile" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.outputHexFile.1627062799" name="Output hex file" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.outputHexFile" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.rtosConfig.550895395" name="RTOS Configurator" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.rtosConfig"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rx"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rx_gen"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.deviceConfiguration"/>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.boardInfo"/>
+		</cconfiguration>
+		<cconfiguration id="com.renesas.cdt.managedbuild.renesas.ccrx.release.configuration.70047920">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.renesas.cdt.managedbuild.renesas.ccrx.release.configuration.70047920" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.renesas.core.RenesasCompilerAssemblerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.core.buildRunnerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.toolchainInfo">
+				<option id="toolchain.id" value="Renesas_RXC"/>
+				<option id="toolchain.version" value="v3.08.00"/>
+				<option id="toolchain.enable" value="true"/>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="abs" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" description="Release - No Debug" id="com.renesas.cdt.managedbuild.renesas.ccrx.release.configuration.70047920" name="Release" parent="com.renesas.cdt.managedbuild.renesas.ccrx.release.configuration">
+					<folderInfo id="com.renesas.cdt.managedbuild.renesas.ccrx.release.configuration.70047920." name="/" resourcePath="">
+						<toolChain id="com.renesas.cdt.managedbuild.renesas.ccrx.release.toolChain.1138510964" name="Renesas CCRX Toolchain" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.release.toolChain">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.PE" id="com.renesas.cdt.managedbuild.renesas.ccrx.base.targetPlatform.632694821" osList="win32" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/ccrx_can_fdg_ek_rx74n_ep}/Release" id="com.renesas.cdt.managedbuild.renesas.ccrx.base.builder.1998924599" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CCRX Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.builder"/>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.dsp.862765036" name="DSP Assembler" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.dsp"/>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.common.127477701" name="Common" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.common">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.isa.897313438" name="Instruction set architecture (-isa)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.isa" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.isa.rxv3" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.signedChar.810870778" name="Sign of the char type (-signed_char/-unsigned_char)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.signedChar" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.signedChar.signed" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.branch.783789308" name="Branch width size (-branch)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.branch" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.branch.none" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.floatIns.751207231" name="Use floating point arithmetic instructions (-fpu/-nofpu)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.floatIns" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.floatIns.yes" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.doublePrecisionFPU.835789096" name="Generates code using double-precision floating-point processing instructions (-dpfpu/-nodpfpu)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.doublePrecisionFPU" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.hasTFU.560250925" name="Has TFU" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.hasTFU" value="true" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.tfuType.1888530317" name="TFU Type" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.tfuType" value="v2 -tfu_version=v2" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.enumDoubleSize.1065206376" name="Precision of double and long double types (-dbl_size)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.enumDoubleSize" value="com.renesas.cdt.managedbuild.renesas.ccrx.common.option.enumDoubleSize.single" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.compiler.1127205255" name="Compiler" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.compiler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.define.1059995701" name="Macro definition (-define)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.define" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RENESAS_RX_"/>
+									<listOptionValue builtIn="false" value="_RX_ORDINAL=1"/>
+									<listOptionValue builtIn="false" value="_RX_CORE=RXv3e"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimize.1956604670" name="Optimization level (-optimize)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimize" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimize.level2" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.include.1660962461" name="Include file directories (-include)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.include" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/instances}&quot;"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionB.989153320" name="Section name of uninitialized data area (-section=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionB" useByScannerDiscovery="false" value=".bss" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionC.1788871855" name="Section name of constant area (-section=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionC" useByScannerDiscovery="false" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.langFileC.99531837" name="C source file (-lang)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.langFileC" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.langFileC.c99" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionP.317434844" name="Section name of program area (-section=P)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionP" useByScannerDiscovery="false" value=".text" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionD.769503390" name="Section name of initialized data area (-section=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionD" useByScannerDiscovery="false" value=".data" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimizationType.683959993" name="Optimization type (-speed/-size)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimizationType" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.optimizationType.speed" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionW.1135609461" name="Section name of switch statement branch table area (-section=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionW" useByScannerDiscovery="false" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionL.2145934735" name="Section name of literal area (-section=L)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.sectionL" useByScannerDiscovery="false" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.inputCharCode.145313816" name="Character code of an input program (-euc/-sjis/-latin1/-utf8/-big5/-gb2312)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.inputCharCode" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.inputCharCode.utf8" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.typeSizeAccessToVolatile.2025700832" name="Access to volatile qualified variables with the sizes of the variable types (-type_size_access_to_volatile)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.typeSizeAccessToVolatile" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffW.1904143822" name="Allocates switch statement branch tables to 4-byte boundary alignment sections (-nostuff=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffW" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffD.1811111094" name="Allocates initialized variables to 4-byte boundary alignment sections (-nostuff=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffD" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffB.1087647589" name="Allocates uninitialized variables to 4-byte boundary alignment sections (-nostuff=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffB" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffC.2087084983" name="Allocates const qualified variables to 4-byte boundary alignment sections (-nostuff=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.nostuffC" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.tfu.114139283" name="Execution method of library function that can use trigonometric function unit (-tfu)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.tfu" useByScannerDiscovery="false" value="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.tfu.yes.math" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.userAfter.1854873957" name="User-defined options (added after all specified options)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.option.userAfter" useByScannerDiscovery="false" valueType="stringList">
+									<listOptionValue builtIn="false" value="-protect_zone"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gcc.inputType.75007129" name="Compiler Input C" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gcc.inputType"/>
+								<inputType id="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gpp.inputType.391131452" name="Compiler Input CPP" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.compiler.gpp.inputType"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.assembler.1076476649" name="Assembler" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.assembler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.include.1465817623" name="Include file directories (-include)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.include" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/${ProjName}/rx/fsp/src/bsp/mcu/all/}"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rx/fsp/inc/instances}&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.define.1036204587" name="Macro definition (-define)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.define" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RX_ORDINAL=1"/>
+									<listOptionValue builtIn="false" value="_RX_CORE=RXv3e"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.userAfter.1753037103" name="User-defined options (added after all specified options)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.option.userAfter" valueType="stringList">
+									<listOptionValue builtIn="false" value="-protect_zone"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.inputType.1721293040" name="Assembler InputType" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.assembler.inputType"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.linker.1230466753" name="Linker" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.linker">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.specifyAddress.1086710550" name="Specify execution start address (-entry)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.specifyAddress" value="false" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.entry.1063179824" name="Execution start address (-entry=&lt;symbol&gt;)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.entry" value="_Reset_Handler" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.symbolDelete.1518841175" name="Deletes variables/functions that are not referenced (-optimize=symbol_delete)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.symbolDelete" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.linkerScript.1866166756" name="Linker script file (-linker_script)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.linkerScript" valueType="stringList">
+									<listOptionValue builtIn="false" value="../script/fsp.rxld"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.381576073" name="Optimization type (-nooptimize/-optimize)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize" value="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.optimize.custom" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.noMessage.67497159" name="Message number (-nomessage=&lt;number&gt;)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.linker.option.noMessage" value="100,1322" valueType="string"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.librarian.522575787" name="Library Generator" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.librarian">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.lang.991894104" name="Library configuration (-lang)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.lang" value="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.lang.c99" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionP.1107126235" name="Section name of program area (-section=P)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionP" value=".text" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionL.97491095" name="Section name of literal area (-section=L)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionL" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionW.872032374" name="Section name of switch statement branch table area (-section=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionW" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.speed.1583750124" name="Optimization type (-speed/-size)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.speed" value="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.speed.performance" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.typeSizeAccessToVolatile.915167906" name="Access to volatile qualified variables with the sizes of the variable types (-type_size_access_to_volatile)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.typeSizeAccessToVolatile" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionC.1568718653" name="Section name of constant area (-section=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionC" value=".rodata" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionB.1345179885" name="Section name of uninitialized data area (-section=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionB" value=".bss" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionD.245579229" name="Section name of initialized data area (-section=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.sectionD" value=".data" valueType="string"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffW.78936777" name="Allocates switch statement branch tables to 4-byte boundary alignment sections (-nostuff=W)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffW" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffB.347890300" name="Allocates uninitialized variables to 4-byte boundary alignment sections (-nostuff=B)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffB" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffD.1957830080" name="Allocates initialized variables to 4-byte boundary alignment sections (-nostuff=D)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffD" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffC.1199476354" name="Allocates const qualified variables to 4-byte boundary alignment sections (-nostuff=C)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.nostuffC" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.userAfter.718951873" name="User-defined options (added after all specified options)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.userAfter" valueType="stringList">
+									<listOptionValue builtIn="false" value="-protect_zone"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMath.235315963" name="math.h (C89/C99): Numerical calculation library (-head=math)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMath" value="true" valueType="boolean"/>
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMathf.655695295" name="mathf.h (C89/C99): Numerical calculation library (float type function) (-head=mathf)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.librarian.option.headMathf" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.converter.1392241736" name="Converter" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.converter">
+								<option id="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.typeOfOutputFile.1376317156" name="Output file type (-form)" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.typeOfOutputFile" value="com.renesas.cdt.managedbuild.renesas.ccrx.converter.option.typeOFOutputFile.none" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.renesas.ccrx.base.rtosConfig.1232373468" name="RTOS Configurator" superClass="com.renesas.cdt.managedbuild.renesas.ccrx.base.rtosConfig"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rx"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rx_gen"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="ccrx_can_fdg_ek_rx74n_ep.com.renesas.cdt.managedbuild.renesas.ccrx.projectType.619447123" name="Executable" projectType="com.renesas.cdt.managedbuild.renesas.ccrx.projectType"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+</cproject>

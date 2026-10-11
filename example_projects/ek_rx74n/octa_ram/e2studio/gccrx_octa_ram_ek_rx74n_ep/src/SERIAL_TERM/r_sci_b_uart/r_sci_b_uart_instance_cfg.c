@@ -1,0 +1,120 @@
+/***********************************************************************************************************************
+* File Name    : r_sci_b_uart_instance_cfg.c
+* Description  : Contains macros, data structures, and common functions used for the UART configuration.
+***********************************************************************************************************************/
+/***********************************************************************************************************************
+ * Copyright 2025 Renesas Electronics Corporation and/or its affiliates. All Rights Reserved.
+ *
+ * This software and documentation are supplied by Renesas Electronics Corporation and/or its affiliates. and may only
+ * be used with products of Renesas Electronics Corp. and its affiliates ("Renesas"). No other uses are authorized.
+ * Renesas products are sold pursuant to Renesas terms and conditions of sale. Purchasers are solely responsible for
+ * the selection and use of Renesas products and Renesas assumes no liability. No license, express or implied, to any
+ * intellectual property right is granted by Renesas. This software is protected under all applicable laws, including
+ * copyright laws. Renesas reserves the right to change or discontinue this software and/or this documentation.
+ * THE SOFTWARE AND DOCUMENTATION IS DELIVERED TO YOU "AS IS," AND RENESAS MAKES NO REPRESENTATIONS OR WARRANTIES, AND
+ * TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW, DISCLAIMS ALL WARRANTIES, WHETHER EXPLICITLY OR IMPLICITLY,
+ * INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT, WITH RESPECT TO THE
+ * SOFTWARE OR DOCUMENTATION. RENESAS SHALL HAVE NO LIABILITY ARISING OUT OF ANY SECURITY VULNERABILITY OR BREACH.
+ * TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL RENESAS BE LIABLE TO YOU IN CONNECTION WITH THE SOFTWARE OR
+ * DOCUMENTATION (OR ANY PERSON OR ENTITY CLAIMING RIGHTS DERIVED FROM YOU) FOR ANY LOSS, DAMAGES, OR CLAIMS WHATSOEVER,
+ * INCLUDING, WITHOUT LIMITATION, ANY DIRECT, CONSEQUENTIAL, SPECIAL, INDIRECT, PUNITIVE, OR INCIDENTAL DAMAGES; ANY
+ * LOST PROFITS, OTHER ECONOMIC DAMAGE, PROPERTY DAMAGE, OR PERSONAL INJURY; AND EVEN IF RENESAS HAS BEEN ADVISED OF THE
+ * POSSIBILITY OF SUCH LOSS, DAMAGES, CLAIMS OR COSTS.
+ **********************************************************************************************************************/
+
+#if (USE_VIRTUAL_COM == 1)
+/***********************************************************************************************************************
+ * Includes
+ **********************************************************************************************************************/
+#include "bsp_api.h"
+
+#if BSP_PERIPHERAL_SCI_B_PRESENT
+#include "r_sci_b_uart_instance_cfg.h"
+#include "../serial.h"
+
+/***********************************************************************************************************************
+ * Exported global variables
+ **********************************************************************************************************************/
+
+/***********************************************************************************************************************
+ * Private function prototypes
+ **********************************************************************************************************************/
+
+/***********************************************************************************************************************
+ * Private global variables
+ **********************************************************************************************************************/
+
+/***********************************************************************************************************************
+ * Global Variables
+ **********************************************************************************************************************/
+
+sci_b_uart_instance_ctrl_t g_serial_ctrl;
+
+sci_b_baud_setting_t g_serial_baud_setting =
+        {
+        /* Baud rate calculated with 0.160% error. */.baudrate_bits_u.baudrate_bits_b.abcse = 0,
+          .baudrate_bits_u.baudrate_bits_b.abcs = 0, .baudrate_bits_u.baudrate_bits_b.bgdm = 1, .baudrate_bits_u.baudrate_bits_b.cks =
+                  0,
+          .baudrate_bits_u.baudrate_bits_b.brr = 64, .baudrate_bits_u.baudrate_bits_b.mddr = (uint8_t) 256, .baudrate_bits_u.baudrate_bits_b.brme =
+                  false };
+
+/** UART extended configuration for UARTonSCI HAL driver */
+const sci_b_uart_extended_cfg_t g_serial_cfg_extend =
+{ .clock = SCI_B_UART_CLOCK_INT, .rx_edge_start = SCI_B_UART_START_BIT_FALLING_EDGE, .noise_cancel =
+          SCI_B_UART_NOISE_CANCELLATION_DISABLE,
+  .rx_fifo_trigger = SCI_B_UART_RX_FIFO_TRIGGER_MAX, .p_baud_setting = &g_serial_baud_setting, .flow_control =
+          SCI_B_UART_FLOW_CONTROL_RTS,
+#if 0xFF != 0xFF
+                .flow_control_pin       = BSP_IO_PORT_FF_PIN_0xFF,
+                #else
+  .flow_control_pin = (bsp_io_port_pin_t) UINT16_MAX,
+#endif
+  .rs485_setting =
+  { .enable = SCI_B_UART_RS485_DISABLE,
+    .polarity = SCI_B_UART_RS485_DE_POLARITY_HIGH,
+    .assertion_time = 1,
+    .negation_time = 1, } };
+
+/** UART interface configuration */
+const uart_cfg_t g_serial_cfg =
+{ .channel = SERIAL_CHANNEL,
+  .data_bits = UART_DATA_BITS_8,
+  .parity = UART_PARITY_OFF,
+  .stop_bits = UART_STOP_BITS_1,
+  .p_callback = serial_callback,
+  .p_context = NULL,
+  .p_extend = &g_serial_cfg_extend,
+  .p_transfer_tx = NULL,
+  .p_transfer_rx = NULL,
+  .rxi_ipl = SERIAL_CHANNEL,
+  .txi_ipl = SERIAL_CHANNEL,
+  .tei_ipl = SERIAL_CHANNEL,
+  .eri_ipl = SERIAL_CHANNEL,
+#if defined(VECTOR_NUMBER_UARTX_RXI)
+                .rxi_irq             = VECTOR_NUMBER_UARTX_RXI,
+#else
+  .rxi_irq = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_UARTX_TXI)
+                .txi_irq             = VECTOR_NUMBER_UARTX_TXI,
+#else
+  .txi_irq = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_UARTX_TEI)
+                .tei_irq             = VECTOR_NUMBER_UARTX_TEI,
+#else
+  .tei_irq = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_UARTX_ERI)
+                .eri_irq             = VECTOR_NUMBER_UARTX_ERI,
+#else
+  .eri_irq = FSP_INVALID_VECTOR,
+#endif
+        };
+
+/* Instance structure to use this module. */
+const uart_instance_t g_serial =
+{ .p_ctrl = &g_serial_ctrl, .p_cfg = &g_serial_cfg, .p_api = &g_uart_on_sci_b };
+
+#endif /* BSP_PERIPHERAL_SCI_B_PRESENT */
+#endif /* USE_VIRTUAL_COM */

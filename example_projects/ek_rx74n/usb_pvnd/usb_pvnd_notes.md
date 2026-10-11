@@ -1,0 +1,287 @@
+# Introduction #
+
+The sample code accompanying with this file shows operation of a Peripheral Vendor class using the USB FS peripheral on a RX MCU. In this example, the application will configure the USB IP on the MCU as a Vendor Peripheral device. This Peripheral device will be connected to another RX MCU operating as USB Host servicing Vendor class requests. After the enumeration is completed, the Vendor Peripheral board will write a fixed amount (default: 15 Bytes) of data to the Vendor Host board which is relayed back by the Host.
+
+Note: 
+* To display information, the user can select between the Debug Virtual Console and the Serial Terminal (UART) with USB Serial COM. It is important to note that the user should only operate a single Terminal Application at a time to avoid conflicts or data inconsistencies. For instructions on how to switch between these options, please refer to the section [`Special Topics`](#special-topics)/[`Changing Terminal Application`](#changing-terminal-application).
+
+* By default, EP information is printed to the host PC using the Serial Terminal (UART) for boards that support USB Serial COM. LED3 is turned ON to indicate the UART initialized unsuccessfully.
+
+* RX boards that support USB Serial COM: EK-RX74M, EK-RX74N.
+
+## Required Resources ##
+
+To build and run the USB PVND example project, the following resources are needed.
+
+### Software ###
+
+* Renesas Flexible Software Package (FSP): Version 1.0.0.
+* e2 studio: Version 2026-07.
+* Renesas GCC Compiler for RX: Version 14.2.0.202607.
+* Renesas CC-RX Compiler: Version v3.08.00.
+* Terminal Console Application: Tera Term or a similar application.
+
+### Hardware ###
+
+* 2 x Renesas RX boards.
+  * 1 x RX board runs the USB PVND example project.
+  * 1 x RX board runs the USB HVND example project
+* 1 x USB OTG cable.
+* 4 x Type-C USB cables.
+  * 3 x Type-C USB cables for programming and debugging.
+  * 1 x Type-C USB cable used to connect the RX board1 to the RX board2 through OTG cable.
+
+### Hardware Connections ###
+
+* Connect the RX board 1 (Running the PVND example) USB debug port (J8) to the PC via a Type-C USB cable for EP debugging.
+* Connect Board 1 (USB Host running the PVND example) to Board 2 (USB Device running the HVND example) using a Type-C OTG cable.
+* Connect the RX board 1 USB Serial port (J27) to the PC using a Type-C USB cable to verify logs through the Terminal Application.
+
+- For EK-RX74N (Full-Speed):
+  - **Self-powered Mode:**
+    - J28: Open (No jumper).
+    - J29: Jumper on pins 2-3.
+    - J30: Jumper on pins 2-3.
+    - SW4: SW4-Pin1,3 OFF, SW4-Pin2,4 ON.
+  - Connect Type-C USB Full Speed port (J31) of the Board1 to Board2 via a Type-C USB cable through OTG Cable.
+
+- For EK-RX74N (High-Speed):
+  - **Self-powered Mode:**
+    - J32: Open (No jumper).
+    - J33: Jumper on pins 2-3.
+    - J34: Jumper on pins 2-3.
+    - SW4: SW4-Pin5,7 OFF, SW4-Pin6,8 ON.
+  - Connect Type-C USB High Speed port (J35) of the Board1 to Board2 via a Type-C USB cable through OTG Cable.
+
+**Note:** The RX board can operate in different power modes (**Bus-powered**) based on jumper configuration. Refer to the "USB PVND Function Modes" section in Special Topics for detailed Bus-powered mode configuration.
+
+## Related Collateral References ##
+The following documents can be referred to for enhancing your understanding of the operation of this example project:
+- [FSP User Manual on GitHub (Reference link)](https://renesas.github.io/fsp/)
+- [FSP Known Issues (Reference link)](https://github.com/renesas/fsp/issues)
+
+# Project Notes #
+
+## System Level Block Diagram ##
+
+![usb_pvnd](images/usb_pvnd_hld.png "High Level Block Diagram")
+
+## FSP Modules Used ##
+List all the various modules that are used in this example project. Refer to the FSP User Manual for further details on each module listed below.
+
+| Module Name | Usage  | Searchable Keyword (using New Stack > Search) |
+|-------------|-----------------------------------------------|-----------------------------------------------|
+| USB PVND | USB Peripheral Vendor class works by combining r_usb_basic module. | r_usb_pvnd |
+
+## Module Configuration Notes ##
+This section describes FSP Configurator properties which are important or different than those selected by default.
+
+**Common Configuration Properties**
+
+|   Module Property Path and Identifier   |   Default Value   |   Used Value   |   Reason   |
+| :-------------------------------------: | :---------------: | :------------: | :--------: |
+|   configuration.xml > BSP > Properties > Settings > Property > RX Common > Heap size (bytes)  |  0   | 0x400  |  Heap size is required for standard library functions to be used. |
+
+**USB PVND Configuration Properties**
+
+|   Module Property Path and Identifier   |   Default Value   |   Used Value   |   Reason   |
+| :-------------------------------------: | :---------------: | :------------: | :--------: |
+| configuration.xml > Stacks > Threads > Peri Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Callback | NULL | usb_peri_vendor_callback | As RTOS is used, so the callback function is set, and this callback function will notify the user about occurrence of usb events. |
+| configuration.xml > Stacks > Threads > Peri Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Speed | Full Speed | Full Speed | Select the USB speed. |
+| configuration.xml > Stacks > Threads > Peri Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Module Number | USB_IP0 Port | USB_IP0 Port | Specify the USB module number to be used. |
+| configuration.xml > Stacks > Threads > Peri Thread > Properties > Settings > Property > Thread > Stack size (bytes) | 1024 | 4096 | This is changed to handle its worst-case function call nesting and local variable usage. |
+| configuration.xml > Stacks > Threads > Peri Thread > Properties > Settings > Property > Thread > Memory Allocation | Static | Dynamic | RTOS objects can be created using RAM that is automatically allocated from the FreeRTOS heap. |
+| configuration.xml > Stacks > Threads > Peri Thread > Properties > Settings > Property > Thread > Memory Allocation > Total Heap Size | 1024 | 40000 | This is changed because Dynamic Allocation support is enabled, so application makes use of amount of RAM available in the FreeRTOS heap. |
+| configuration.xml > Stacks > Threads > Peri Thread > Properties > Settings > Property > Thread > Memory Allocation > Support Dynamic Allocation | Disabled | Enabled | This is changed to allocate memory for this object from a FreeRTOS heap. |
+| configuration.xml > Stacks > Objects > g_queue Queue > Properties > Settings > Property > Memory Allocation | Static | Dynamic | This is changed to allocate memory for this object from a FreeRTOS heap. |
+| configuration.xml > Stacks > Objects > g_queue Queue > Properties > Settings > Property > Queue Length (Items) | 20 | 10 | Queue length is assigned. |
+|  configuration.xml > Stacks > Threads > Phid Thread > g_basic0 USB (r_usb_basic) > Properties > Settings > Property > Pins > USBFS_OVRCURA_A(DS) | None | P104 | The USBFS_OVRCURA_A(DS) pin is configured to P104 to match the RX74N board's pinout. |
+|  configuration.xml > Stacks > Threads > Phid Thread > g_basic0 USB (r_usb_basic) > Properties > Settings > Property > Pins > USBFS_VBUSEN | None | P304 | The USBFS_VBUSEN pin is configured to P304 to match the RX74N board's pinout. |
+|  configuration.xml > Stacks > Threads > Phid Thread > g_basic0 USB (r_usb_basic) > Properties > Settings > Property > Pins > USBFS_VBUS_A(DS) | None | P101 | The USBFS_VBUS_A(DS) pin is configured to P101 to match the RX74N board's pinout. |
+
+**Configuration Properties if USB Speed as High Speed**
+|   Module Property Path and Identifier   |   Default Value   |   Used Value   |   Reason   |
+| :-------------------------------------: | :---------------: | :------------: | :--------: |
+| configuration.xml > Stacks > Threads > Host Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Speed | Full Speed | Hi Speed | USB Speed is configured as **Hi Speed**. |
+| configuration.xml > Stacks > Threads > Host Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Module Number | USB_IP0 Port | USB_IP1 Port | This property is used to specify USB module number to be used as per configured USB speed. |
+
+**Configuration Properties if USB Speed as Full Speed**
+|   Module Property Path and Identifier   |   Default Value   |   Used Value   |   Reason   |
+| :-------------------------------------: | :---------------: | :------------: | :--------: |
+| configuration.xml > Stacks > Threads > Host Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Speed | Full Speed | Full Speed | USB Speed is configured as **Full Speed**. |
+| configuration.xml > Stacks > Threads > Host Thread > g_basic USB (r_usb_basic) > Properties > Settings > Property > Module g_basic USB (r_usb_basic) > USB Module Number | USB_IP0 Port | USB_IP0 Port | This property is used to specify USB module number to be used as per configured USB speed. |
+
+**Configuration Properties for using the Serial Terminal (UART)**   
+|   Configure Clock Path                  |   Default Value   |   Used Value   |   Reason   |
+|-----------------------------------------|-------------------|----------------|------------|
+| configuration.xml > Clocks > Clocks Configuration > SCICLK Disable | SCICLK Disable | SCICLK Src: HOCO | Enable operating clock for SCI module by HOCO clock source. |
+
+|   Configure Interrupt Event Path        |   Default Value   |   Used Value   |   Reason   |
+|-----------------------------------------|-------------------|----------------|------------|
+| configuration.xml > Interrupts > Interrupts Configuration > New User Event > RSCI > RSCI12 > RSCI12 RXI (Receive data full) | empty | sci_b_uart_rxi_isr | Assign the UART receive ISR (Receive data full) to the interrupt vector table. |
+| configuration.xml > Interrupts > Interrupts Configuration > New User Event > RSCI > RSCI12 > RSCI12 TXI (Transmit data empty) | empty | sci_b_uart_txi_isr | Assign the UART transfer ISR (Transfer data empty) to the interrupt vector table. |
+| configuration.xml > Interrupts > Interrupts Configuration > New User Event > RSCI > RSCI12 > 105-6 GROUPAL1 RSCI12 TEI (Transmit end) | empty | sci_b_uart_tei_isr | Assign the UART transfer ISR (Transfer end) to the interrupt vector table. |
+| configuration.xml > Interrupts > Interrupts Configuration > New User Event > RSCI > RSCI12 > 105-7 GROUPAL1 RSCI12 ERI (Receive error) | empty | sci_b_uart_eri_isr | Assign the UART receive ISR (Receive error) to the interrupt vector table. |
+
+
+## API Usage ##
+
+The table below lists the APIs used at the application layer by this example project.
+
+| API Name                    | Usage                                                                    |
+|-----------------------------|--------------------------------------------------------------------------|
+| R_USB_Open                  | This API is used to open USB instance.                                   |
+| R_USB_PipeRead              | This API is used to read data from host, when USB write complete event occur. |
+| R_USB_PipeWrite             | This API is used to write data back to host, when USB read complete event occur. |
+| R_USB_UsedPipesGet          | This API is used to get USB pipe information.                            |
+| R_USB_PipeInfoGet           | This API is used to get the pipe information.                            |
+| R_USB_PeriControlDataGet    | This API is used to get data length from host.                           |
+| R_USB_PeriControlDataSet    | This API is used to set data length in peripheral.                       |
+| R_USB_PeriControlStatusSet  | This API is used to set the USB status as ACK response.                  |
+| R_USB_Close                 | This API is used to stop USB module and terminate power.                 |
+
+**For using the Serial Terminal (UART)**
+| API Name           | Usage                                                                          |
+|--------------------|--------------------------------------------------------------------------------|
+| R_SCI_B_UART_Open  | This API is used to configures the UART driver based on the input configurations. |
+| R_SCI_B_UART_Write | This API is used to transmit user specified number of bytes from the source buffer pointer. |
+| R_SCI_B_UART_Close | This API is used to abort any in progress transfers, disables interrupts, receiver, and transmitter, close lower level transfer drivers if used and remove power. |
+
+## Verifying Operation ##
+
+1. Import the example project.
+
+2. Generate, and build the example project.
+
+3. Before running the example project, make sure hardware connections are completed.
+
+4. Connect the RX MCU to the host PC via debugger. By default, EP will use E2lite debugger.
+
+5. Open a terminal application (e.g., Tera Term or Debug Virtual Console) on the host PC and connect to the RX board’s USB Serial port.  
+   * Note: For using the Serial Terminal application:
+        * To echo back typed content in Tera Term, go to [Setup] -> [Terminal...] and check [Local echo].
+        * The configuration parameters of the serial port are:
+            - COM port: Provided by the USB Serial COM.
+            - Baud rate: 115200 bps
+            - Data length: 8 bits
+            - Parity: None
+            - Stop bit: 1 bit
+            - Flow control: None 
+
+6. Users can perform the menu operations and check the corresponding results on the terminal console (USB Serial COM).
+
+Note: The examples are separate projects and should be flashed to two different boards. 
+* On EK-RX74M, EK-RX74N: After flashing Board 1, set SW6.1 on that board to ON to enable on-board debugging, press the Reset button, and then flash the second project to the Board 2.
+
+Below image showcases the output log on the Serial terminal application (Tera Term):
+
+![dvc_info](images/usb_pvnd_dvc_tera_term.png "DVC output")  
+
+## Special Topics ##
+
+### Developing Descriptor ###
+
+A USB device provides information about itself in data structures called USB descriptors.
+
+The host obtains descriptors from an attached device by sending various standard control requests to the default endpoint. These requests specify the type of descriptor to retrieve. In response to such requests, the device sends descriptors that include information about the device, its configurations, interfaces and the related endpoints.
+
+* A template for PVND descriptors can be found in rx/fsp/src/r_usb_pvnd_descriptor.c.template. Also, please be sure to use your vendor ID.
+
+### USB PVND Function Modes ###
+
+**Full Speed**
+
+**1. Bus-powered Mode**: The USB device is powered by the USB host through the USB cable. The device draws power from the USB bus. The following jumper settings are used for this mode:
+- For EK-RX74M, EK-RX74N :
+  - J28: Jumper on pins 1-2.
+  - J29: Jumper on pins 1-2.
+  - J30: Jumper on pins 2-3.
+  - SW4: SW4-Pin1 OFF, SW4-Pin2 ON, SW4-Pin3 OFF, SW4-Pin4 ON.
+
+**2. Self-powered Mode**: The USB device has its own power supply and does not rely on the USB host for power. The device operates independently of the USB bus power.
+
+**High Speed**
+
+**1. Bus-powered Mode**: The USB device is powered by the USB host through the USB cable. The device draws power from the USB bus. The following jumper settings are used for this mode:
+- For EK-RX74M, EK-RX74N :
+  - J32: Jumper on pins 1-2.
+  - J33: Jumper on pins 1-2.
+  - J34: Jumper on pins 2-3.
+  - SW4: SW4-Pin5 OFF, SW4-Pin6 ON, SW4-Pin7 OFF, SW4-Pin8 ON.
+
+**2. Self-powered Mode**: The USB device has its own power supply and does not rely on the USB host for power. The device operates independently of the USB bus power.
+
+### Debugger Setting ###
+
+* To use E2 Lite on-board or E2 Emulator Lite, please follow the instructions below:
+
+1. **Common step**: Click [**Run**] → [**Debug Configurations…**] to open the “**Debug Configurations**” window.  
+  ![Debug Configuration](images/Debug_configuration_common.png)
+
+2. **Select file application**  
+  a. **Used for projects built with GCC**: --> Select file **.elf**.  
+  ![Debug Configuration](images/Debug_configuration_GCC_select_file_application.png)  
+  b. **Used for projects built with CCRX**: --> Select file **.x**.  
+  ![Debug Configuration](images/Debug_configuration_CCRX_select_file_application.png)
+
+3. **Setting debugger configurations**  
+  a. **Used for E2 Lite on-board**.    
+  ![Debug Configuration](images/Debug_configuration_E2lite_onboard_setting_debugger.png)  
+  b. **Used for external E2 Emulator Lite**.  
+  ![Debug Configuration](images/Debug_configuration_E2lite_emulator_setting_debugger.png)  
+
+  **Note:** Connect the RX board debugger port (J9) to the host PC via E2 Emulator Lite (with USB cable and 20-20 pin cable).
+
+### Adding lowsrc Folder
+
+Before changing terminal application settings, you need to add the `lowsrc` folder from another Example Project:
+
+1. **Locate the lowsrc folder:**
+   
+   - Navigate to Example Project `sci_uart` or `usb_pcdc_with_freertos`  (`example_projects/<board>/sci_uart/e2studio/gccrx_sci_uart_<board>_ep/src`)
+   - Find the `lowsrc` folder containing low-level source files.
+
+2. **Copy `lowsrc` folder to this Example Project:**
+   
+   - Copy the entire `lowsrc` folder.
+   - Paste it into this your target Example Project directory: `example_projects/ek_rx74m/<EP>/e2studio/`.
+
+3. **Add lowsrc to e2studio project:**
+   
+   - In e2studio, right-click on the project in Project Explorer.
+   - Select **Refresh** (or press F5) to detect the new folder.
+
+4. **Verify the folder is included:**
+   
+   - Expand the project tree in Project Explorer.
+   - Confirm that `lowsrc` folder and its contents are visible.
+   - The folder should be included in the build path with source files ready to compile.
+
+5. **Changing the terminal Application to use the Debug Virtual Console:**
+   
+   - For instructions on how to switch between these options, please refer to the section [`Special Topics`](#special-topics)/[`Changing Terminal Application`](#changing-terminal-application).
+
+6. **Re-build the project:**
+   
+   - In e2studio, right-click on the project and select **Build Project**.
+
+**Note:** To use Debug Virtual Console, the `lowsrc` folder must be added to the project, as it contains the source files required for Debug Virtual Console operation.
+
+### Changing Terminal Application ###
+By default, the EP supports Serial Terminal for RX boards that support USB Serial COM   
+**For use CCRX Compiler:**
+* Define USE_VIRTUAL_COM=1 macro in Project Properties -> C/C++ Build -> Settings -> Tool Settings -> Compiler -> Source -> Macro definition (-define)
+
+To use Debug Virtual Console, please follow the instructions below:
+* Define USE_VIRTUAL_COM=0 macro in Project Properties -> C/C++ Build -> Settings -> Tool Settings -> Compiler -> Source -> Macro definition (-define)
+* Define BSP_CFG_IO_LIB_ENABLE=1 macro in Project Properties -> C/C++ Build -> Settings -> Tool Settings -> Compiler -> Source -> Macro definition (-define)
+
+![USE_VIRTUAL_COM settings for CCRX](images/use_virtual_com_setting_ccrx.png "USE_VIRTUAL_COM settings CCRX")
+
+**For use GCCRX Compiler:**  
+* Define USE_VIRTUAL_COM=1 macro in Project Properties -> C/C++ Build -> Settings -> Tool Settings -> Compiler -> Includes -> Macro Defines (-D)
+
+To use Debug Virtual Console, please follow the instructions below:
+* Define USE_VIRTUAL_COM=0 macro in Project Properties -> C/C++ Build -> Settings -> Tool Settings -> Compiler -> Includes -> Macro Defines (-D)
+
+![USE_VIRTUAL_COM settings for GCCRX](images/use_virtual_com_setting_gccrx.png "USE_VIRTUAL_COM settings GCCRX")

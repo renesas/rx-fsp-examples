@@ -1,0 +1,170 @@
+/***********************************************************************************************************************
+ * File Name    : poeg_ep.c
+ * Description  : Contains data structures and functions used in poeg_ep.c.
+ **********************************************************************************************************************/
+
+/***********************************************************************************************************************
+* Copyright (c) 2026 Renesas Electronics Corporation and/or its affiliates
+*
+* SPDX-License-Identifier: BSD-3-Clause
+***********************************************************************************************************************/
+
+#include "poeg_ep.h"
+
+/*******************************************************************************************************************//**
+ * @addtogroup poeg_ep
+ * @{
+ **********************************************************************************************************************/
+
+/*******************************************************************************************************************//**
+ * @brief       This function de-initializes the Timer module
+ * @param[in]   timer_ctrl_t * const p_timer_ctl
+ * @retval      None
+ **********************************************************************************************************************/
+void deinit_gpt_timer(timer_ctrl_t *const p_timer_ctl)
+{
+    fsp_err_t err = FSP_SUCCESS;
+
+    /* Timer Close API call */
+    err = R_GPT_Close(p_timer_ctl);
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        /* GPT Close failure message */
+        APP_ERR_PRINT("\r\nR_GPT_Close API failed\r\n");
+    }
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function initializes the GPT PWM1 module
+ * @param[in]   None
+ * @retval      FSP_SUCCESS                  Upon successful GPT Open
+ * @retval      Any Other Error code apart from FSP_SUCCESS  Upon Unsuccessful
+ **********************************************************************************************************************/
+fsp_err_t init_gpt_timer_pwm1(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    err = R_GPT_Open(&g_timer_pwm1_ctrl, &g_timer_pwm1_cfg);
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("\r\nR_GPT_Open API failed\r\n");
+    }
+    return (err);
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function initializes the GPT PWM2 module
+ * @param[in]   None
+ * @retval      FSP_SUCCESS                  Upon successful GPT Open
+ * @retval      Any Other Error code apart from FSP_SUCCESS  Upon Unsuccessful
+ **********************************************************************************************************************/
+fsp_err_t init_gpt_timer_pwm2(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    err = R_GPT_Open(&g_timer_pwm2_ctrl, &g_timer_pwm2_cfg);
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("\r\nR_GPT_Open API failed\r\n");
+    }
+    return (err);
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function initializes the POEG0 module
+ * @param[in]   None
+ * @retval      FSP_SUCCESS                  Upon successful POEG0 Open
+ * @retval      Any Other Error code apart from FSP_SUCCESS  Upon Unsuccessful
+ **********************************************************************************************************************/
+fsp_err_t init_poeg0_module(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    /* Initialize the POEG */
+    err = R_POEG_Open(&g_poeg0_ctrl, &g_poeg0_cfg);
+    /* Handle any errors */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("\r\nR_POEG_Open API failed\r\n");
+        return (err);
+    }
+    R_BSP_IrqDisable(VECTOR_NUMBER_POEG0_EVENT);
+    return err;
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function de-initializes the POEG0 module
+ * @param[in]   None
+ * @retval      FSP_SUCCESS                  Upon successful POEG0 Close
+ * @retval      Any Other Error code apart from FSP_SUCCESS  Upon Unsuccessful
+ **********************************************************************************************************************/
+fsp_err_t deinit_poeg0_module(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    /* De-initialize the POEG */
+    err = R_POEG_Close(&g_poeg0_ctrl);
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("\r\nR_POEG_Close API failed\r\n");
+    }
+    return err;
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function initializes the POEG1 module
+ * @param[in]   None
+ * @retval      FSP_SUCCESS                  Upon successful POEG1 Open
+ * @retval      Any Other Error code apart from FSP_SUCCESS  Upon Unsuccessful
+ **********************************************************************************************************************/
+fsp_err_t init_poeg1_module(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    /* Initialize the POEG */
+    err = R_POEG_Open(&g_poeg1_ctrl, &g_poeg1_cfg);
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("\r\nR_POEG_Open API failed\r\n");
+        return (err);
+    }
+    R_BSP_IrqDisable(VECTOR_NUMBER_POEG1_EVENT);
+    return err;
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function de-initializes the POEG1 module
+ * @param[in]   None
+ * @retval      FSP_SUCCESS                  Upon successful POEG1 Close
+ * @retval      Any Other Error code apart from FSP_SUCCESS  Upon Unsuccessful
+ **********************************************************************************************************************/
+fsp_err_t deinit_poeg1_module(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    /* De-initialize the POEG */
+    err = R_POEG_Close(&g_poeg1_ctrl);
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("\r\nR_POEG_Close API failed\r\n");
+    }
+    return err;
+}
+
+/*******************************************************************************************************************//**
+ * @brief       This function de-initializes the POEG0 and POEG1 modules
+ * @param[in]   None
+ * @retval      None
+ **********************************************************************************************************************/
+void deinit_poeg_module(void)
+{
+    /* De-initialize the POEG0 */
+    deinit_poeg0_module();
+
+    /* De-initialize the POEG1 */
+    deinit_poeg1_module();
+}
+
+/*******************************************************************************************************************//**
+ * @} (end addtogroup poeg_ep)
+ **********************************************************************************************************************/

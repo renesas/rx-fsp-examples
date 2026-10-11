@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rzone>
+    <device Dvendor="Renesas" Dname="R5K574N">
+        <processor Pname="RXv3e" Dcore="RXv3e" Dfpu="DP_FPU" Dmpu="1" Dtz="NO_TZ" Ddsp="NO_DSP" Dendian="Configurable" Dclock="600000000" DcoreVersion="r0p1" DnumInterrupts="256" DnumSauRegions="0"/>
+    </device>
+    <resources>
+        <memories>
+            <memory name="RAM_NS" type="RAM" start="0x02000000" physical="0x82000000" size="0x00180000" access="rwx" security="n"/>
+            <memory name="RAM" type="RAM" start="0x82000000" size="0x00180000" access="rwx" security="s"/>
+            <memory name="FLASH_NS" type="ROM" start="0x7FF00000" physical="0xFFF00000" size="0x00100000" access="rx" security="n"/>
+            <memory name="FLASH" type="ROM" start="0xFFF00000" size="0x00100000" access="rx" security="s"/>
+            <memory name="DATA_FLASH_NS" type="ROM" start="0x06900000" physical="0x86900000" size="0x0000C000" access="rx" security="n"/>
+            <memory name="DATA_FLASH" type="ROM" start="0x86900000" size="0x0000C000" access="rx" security="s"/>
+            <memory name="SDRAM" type="RAM" start="0x70000000" size="0x08000000" access="rwx" security="n"/>
+            <memory name="XSPI0_CS0" type="ROM" start="0x30000000" size="0x10000000" access="rx" security="n"/>
+            <memory name="XSPI0_CS1" type="ROM" start="0x20000000" size="0x10000000" access="rx" security="n"/>
+            <memory name="XSPI1_CS0" type="ROM" start="0x50000000" size="0x10000000" access="rx" security="n"/>
+            <memory name="XSPI1_CS1" type="ROM" start="0x40000000" size="0x10000000" access="rx" security="n"/>
+            <memory name="LRAM_NS" type="RAM" start="0x00000000" physical="0x80000000" size="0x00040000" access="rwx" security="n"/>
+            <memory name="LRAM" type="RAM" start="0x80000000" size="0x00040000" access="rwx" security="s"/>
+            <memory name="RESET_VECTOR_NS" type="ROM" start="0x7FF7FFFC" physical="0xFFFFFFFC" size="0x00000004" access="rx" security="n"/>
+            <memory name="RESET_VECTOR" type="ROM" start="0xFFFFFFFC" size="0x00000004" access="rx" security="s"/>
+            <memory name="OPTION_SETTING_BANKSEL_NS" type="ROM" start="0x06C4EC60" size="0x00000004" access="r" security="n"/>
+            <memory name="OPTION_SETTING_BLSEL_NS" type="ROM" start="0x06C4EC70" size="0x00000004" access="r" security="n"/>
+            <memory name="OPTION_SETTING_BPSD0_NS" type="ROM" start="0x06C9F480" size="0x00000004" access="r" security="n"/>
+            <memory name="OPTION_SETTING_BLKSWP_NS" type="ROM" start="0x06C9F500" size="0x00000010" access="r" security="n"/>
+            <memory name="OPTION_SETTING_BPS_NS" type="ROM" start="0x06C9F600" size="0x00000040" access="r" security="n"/>
+            <memory name="OPTION_SETTING_BPS_NS_DUAL" type="ROM" start="0x06C9F700" size="0x00000020" access="r" security="n"/>
+            <memory name="OPTION_SETTING_OTP_SOTPMS_NS" type="ROM" start="0x06E20810" size="0x00000004" access="r" security="n"/>
+            <memory name="OPTION_SETTING_OFS1_NS" type="ROM" start="0x06E20850" size="0x00000004" access="r" security="n"/>
+            <memory name="OPTION_SETTING_OTP_PBPS_NS" type="ROM" start="0x06E20C00" size="0x00000010" access="r" security="n"/>
+            <memory name="OPTION_SETTING_OTP_PBPS_NS_DUAL" type="ROM" start="0x06E20C40" size="0x00000008" access="r" security="n"/>
+            <memory name="OPTION_SETTING_OTP_PBPSD0_NS" type="ROM" start="0x06E20C80" size="0x00000004" access="r" security="n"/>
+            <memory name="OPTION_SETTING_DUALSEL" type="ROM" start="0x86C2E850" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_SAS" type="ROM" start="0x86C2E870" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BANKSEL_S" type="ROM" start="0x86C2E9B0" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BLSEL_S" type="ROM" start="0x86C2E9C0" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BANKSEL_SEL" type="ROM" start="0x86C2E9E0" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BLSEL_SEL" type="ROM" start="0x86C2E9F0" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BPSD0_S" type="ROM" start="0x86C9F080" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BLKSWP_S" type="ROM" start="0x86C9F100" size="0x00000010" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BPS_S" type="ROM" start="0x86C9F200" size="0x00000040" access="r" security="s"/>
+            <memory name="OPTION_SETTING_BPS_S_DUAL" type="ROM" start="0x86C9F300" size="0x00000020" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_FSBLCTRL0" type="ROM" start="0x86E00400" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_FSBLCTRL1" type="ROM" start="0x86E00404" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_FSBLCTRL2" type="ROM" start="0x86E00408" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SAMR" type="ROM" start="0x86E00414" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC00" type="ROM" start="0x86E00420" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC10" type="ROM" start="0x86E00430" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC01" type="ROM" start="0x86E00440" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC11" type="ROM" start="0x86E00450" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC02" type="ROM" start="0x86E00460" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC12" type="ROM" start="0x86E00470" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC03" type="ROM" start="0x86E00480" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SACC13" type="ROM" start="0x86E00490" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_SOTPMS_S" type="ROM" start="0x86E10610" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OFS0" type="ROM" start="0x86E10640" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OFS2" type="ROM" start="0x86E10644" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_MDE" type="ROM" start="0x86E1064C" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OFS1_S" type="ROM" start="0x86E107A0" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OFS1_SEL" type="ROM" start="0x86E107D0" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_PBPS_S" type="ROM" start="0x86E10A00" size="0x00000010" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_PBPS_S_DUAL" type="ROM" start="0x86E10A40" size="0x00000008" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_PBPSD0_S" type="ROM" start="0x86E10A80" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_ZHUK" type="ROM" start="0x86E30E20" size="0x00000004" access="r" security="s"/>
+            <memory name="OPTION_SETTING_OTP_UMRECR" type="ROM" start="0x86E30E50" size="0x00000004" access="r" security="s"/>
+        </memories>
+        <peripherals/>
+    </resources>
+</rzone>

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+options/suppresswarningspaths=rx/aws,rx/freertos,rx/fsp/src/rm_freertos_port
+options/toolchainversion=14.2.0.202607
